@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Do not use Vert.x in casual?</title>
+    <link rel="stylesheet" href="reveal/css/theme/night.css"/>
+    <link rel="stylesheet" href="reveal/css/reveal.min.css"/>
+    <script type='text/javascript'>
+      //<![CDATA[
+        if (window.location.search.match(/print-pdf/gi)) {
+            var link = document.createElement('link')
+            link.rel = 'stylesheet'
+            link.type = 'text/css'
+            link.href = 'reveal/css/print/pdf.css'
+            document.getElementsByTagName('head')[0].appendChild(link)
+        }
+      //]]>
+    </script>
+    <!--[if lt IE 9]>
+      <script src="reveal/lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+<section>
+  <h1>Vert.xを</h1>
+  <h1>カジュアルに</h1>
+  <h1>使おう</h1>
+  <br/>
+  <p>第五.五回 #渋谷java</p>
+  <a href="https://twitter.com/grimrose">@grimrose</a>
+</section>
+<section>
+  <h2>JVMの重力に魂を引かれた皆様</h2>
+  <h2>こんにちわ</h2>
+</section>
+<section>
+  <h1>
+    <a href="http://vertx.io">Vert.x</a>
+  </h1>
+</section>
+<section>
+  <section>
+    <h2>質問です</h2>
+  </section>
+  <section>
+    <h2>Vert.xを知っている？</h2>
+  </section>
+  <section>
+    <h2>Vert.xを触ったことがある？</h2>
+  </section>
+  <section>
+    <h2>Vert.xを使っている?</h2>
+  </section>
+</section>
+<section>
+  <section>
+    <h2>もちろん、Java大好き</h2>
+  </section>
+  <section>
+    <h2>Groovyって素晴らしいよね</h2>
+  </section>
+  <section>
+    <h2>Scalaなら任せろ？</h2>
+  </section>
+  <section>
+    <h2>時代はJavaScriptでしょ？</h2>
+  </section>
+  <section>
+    <h2>レアなJRubyistです</h2>
+  </section>
+  <section>
+    <h2>更にレアなJythonista</h2>
+  </section>
+  <section>
+    <h2>孤高のClojure使い</h2>
+  </section>
+  <section>
+    <h5>まさかのPHPer</h5>
+  </section>
+</section>
+<section>
+  <h2>おめでとうございます。</h2>
+</section>
+<section>
+  <h2>皆さん</h2>
+  <h2>明日からでもVert.xが使えます。</h2>
+</section>
+<section>
+  <h2>今、このスライドも実は…</h2>
+</section>
+<section>
+  <h2>Vert.x HTTP Server</h2>
+  <h3>で動いています。</h3>
+</section>
+<section>
+  <h2>例えば</h2>
+</section>
+<section>
+  <section>
+    <h2>Web Server</h2>
+  </section>
+  <section>
+    <h2>カジュアルに使いたい</h2>
+  </section>
+  <section>
+    <h2>Pythonなら</h2>
+    <br/>
+    <p>python -m SimpleHTTPServer 9000</p>
+    <p>python -m http.server 9000</p>
+  </section>
+  <section>
+    <h2>Rubyなら</h2>
+    <br/>
+    <p>ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./", :Port => 8000).start'</p>
+    <p>ruby -rsinatra -e 'set :port,9000; get("/"){sleep 3}'</p>
+  </section>
+</section>
+<section>
+  <h2>ぐぬぬ</h2>
+</section>
+<section>
+  <h2>そこでVert.xですよ！</h2>
+</section>
+<section>
+  <p>// server.groovy</p>
+  vertx.createHttpServer().requestHandler{ request ->
+  request.response.sendFile 'index.html'
+  <br/>
+  }.listen 8080
+</section>
+<section>
+  <h2>$ vertx run server.groovy</h2>
+</section>
+<section>
+  <section>
+    <h2>HTTP Server 以外にも</h2>
+  </section>
+  <section>
+    <h2>HTTP Client</h2>
+  </section>
+  <section>
+    <h2>WebSocket Server</h2>
+  </section>
+  <section>
+    <h2>WebSocket Client</h2>
+  </section>
+  <section>
+    <h2>Socket Server</h2>
+  </section>
+  <section>
+    <h2>etc...</h2>
+  </section>
+</section>
+<section>
+  <h2>Vert.xの概要</h2>
+</section>
+<section>
+  <h2>JJUG CCC 2013 Fall</h2>
+  <h3>R5-6 [BOF] Over the Node.js. An Introduction to Vert.x</h3>
+</section>
+<section>
+  <iframe src="http://www.slideshare.net/slideshow/embed_code/28096272" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/acroquest/an-introduction-to-vertx" title="An Introduction to Vert.x" target="_blank">An Introduction to Vert.x</a> </strong> from <strong><a href="http://www.slideshare.net/acroquest" target="_blank">Acroquest Technology</a></strong> </div>
+</section>
+<section>
+  <section>
+    <h2>詳しくは</h2>
+  </section>
+  <section>
+    <h2>
+      <a href="http://vertx.io/docs.html">公式ドキュメント</a>
+    </h2>
+  </section>
+</section>
+<section>
+  <h2>だいたい分かったので</h2>
+</section>
+<section>
+  <h2>カジュアルにデプロイしたい！</h2>
+</section>
+<section>
+  <h2>
+    <a href="https://www.heroku.com">Heroku</a>
+  </h2>
+</section>
+<section>
+  <h2>してみました</h2>
+</section>
+<section>
+  <h2>
+    <a href="https://github.com/grimrose/vertx-groovy-heroku-sample">grimrose / vertx-groovy-heroku-sample</a>
+  </h2>
+</section>
+<section>
+  <h2>Vert.x + WebSocket + MongoDB</h2>
+</section>
+<section>
+  <h2>Vert.xの今後</h2>
+</section>
+<section>
+  <h2>2.1.RC3</h2>
+</section>
+<section>
+  <h2>
+    <a href="http://modulereg.vertx.io/">Vert.x Module Registry</a>
+  </h2>
+</section>
+<section>
+  <h2>Java 8</h2>
+</section>
+<section>
+  <h2>Nashorn</h2>
+</section>
+<section>
+  <h2>
+    <a href="http://nodyn.io">Nodyn</a>
+  </h2>
+  <blockquote>Nodyn is a node.js compatible framework</blockquote>
+  <blockquote>running on the JVM powered by the DynJS Javascript</blockquote>
+</section>
+<section>
+  <h2>ご清聴ありがとうございました。</h2>
+</section>
+<section>
+  <p>
+    
+    <a href="#/0">初めに戻る</a>
+  </p>
+</section>
+      </div>
+    </div>
+    <script src="reveal/lib/js/head.min.js"></script>
+    <script src="reveal/js/reveal.min.js"></script>
+    <script type='text/javascript'>
+      //<![CDATA[
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            slideNumber: true,
+            history: true,
+            keyboard: true,
+            overview: true,
+            center: true,
+            previewLinks: true,
+        })
+      //]]>
+    </script>
+  </body>
+</html>
