@@ -1,0 +1,85 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.darylteo.vertx:vertx-gradle-plugin:0.1+'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: 'idea'
+
+apply plugin: 'scala'
+apply plugin: 'vertx'
+
+group 'org.grimrose'
+version '0.1.0-SNAPSHOT'
+
+
+dependencies {
+    compile "org.scala-lang:scala-library:$scalaVersion"
+    compile "org.scala-lang:scala-compiler:$scalaVersion"
+
+    compile 'io.vertx:lang-scala:1.0.0-RC1'
+
+    compile 'org.fusesource.scalate:scalate-core_2.10:1.6.1'
+
+    testCompile "junit:junit:$junitVersion"
+    testCompile "org.scalatest:scalatest_2.10:2.1.0"
+    testCompile "org.hamcrest:hamcrest-library:$hamcrestVersion"
+}
+
+
+vertx {
+    platform {
+        version "$vertxVersion"
+        lang 'scala'
+        lang 'groovy'
+    }
+
+    config {
+        main 'scala:Main'
+    }
+
+    deployments {
+        mod {
+            platform {
+                version "$vertxVersion"
+            }
+        }
+    }
+
+    info {
+        description 'Shibuya Java #5.5'
+
+        developers {
+            developer {
+                id 'grimrose'
+                name 'grimrose'
+                email ''
+            }
+        }
+
+        licenses {
+            license {
+                name 'MIT License'
+                url 'http://www.opensource.org/licenses/mit-license.php'
+            }
+        }
+
+        properties { keywords 'Scalate,Shibuya,Java,Presentation' }
+    }
+}
+
+// Tests
+afterEvaluate {
+    // test deployments and tasks
+    assert vertx.deployments.findByName('mod') != null
+    assert tasks.findByName('runMod') != null
+    assert tasks.findByName('debugMod') != null
+}

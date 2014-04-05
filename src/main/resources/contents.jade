@@ -1,0 +1,173 @@
+section
+    h1 Vert.xを
+    h1 カジュアルに
+    h1 使おう
+    br
+    p 第五.五回 #渋谷java
+    a{:href => "https://twitter.com/grimrose"} @grimrose
+
+section
+    h2 JVMの重力に魂を引かれた皆様
+    h2 こんにちわ
+
+section
+    h1
+        a{:href => "http://vertx.io"} Vert.x
+
+section
+    section
+        h2 質問です
+    section
+        h2 Vert.xを知っている？
+    section
+        h2 Vert.xを触ったことがある？
+    section
+        h2 Vert.xを使っている?
+
+section
+    section
+        h2 もちろん、Java大好き
+    section
+        h2 Groovyって素晴らしいよね
+    section
+        h2 Scalaなら任せろ？
+    section
+        h2 時代はJavaScriptでしょ？
+    section
+        h2 レアなJRubyistです
+    section
+        h2 更にレアなJythonista
+    section
+        h2 孤高のClojure使い
+    section
+        h5 まさかのPHPer
+
+section
+    h2 おめでとうございます。
+
+section
+    h2 皆さん
+    h2 明日からでもVert.xが使えます。
+
+section
+    h2 今、このスライドも実は…
+
+section
+    h2 Vert.x HTTP Server
+    h3 で動いています。
+
+section
+    h2 例えば
+
+section
+    section
+        h2 Web Server
+    section
+        h2 カジュアルに使いたい
+    section
+        h2 Pythonなら
+        br
+        p python -m SimpleHTTPServer 9000
+        p python -m http.server 9000
+    section
+        h2 Rubyなら
+        br
+        p ruby -rwebrick -e 'WEBrick::HTTPServer.new(:DocumentRoot => "./", :Port => 8000).start'
+        p ruby -rsinatra -e 'set :port,9000; get("/"){sleep 3}'
+
+section
+    h2 ぐぬぬ
+
+section
+    h2 そこでVert.xですよ！
+
+section
+    p // server.groovy
+    |        vertx.createHttpServer().requestHandler{ request ->
+    |            request.response.sendFile 'index.html'
+    br
+    |}.listen 8080
+
+section
+    h2 $ vertx run server.groovy
+
+section
+    section
+        h2 HTTP Server 以外にも
+    section
+        h2 HTTP Client
+    section
+        h2 WebSocket Server
+    section
+        h2 WebSocket Client
+    section
+        h2 Socket Server
+    section
+        h2 etc...
+
+section
+    h2 Vert.xの概要
+
+section
+    h2 JJUG CCC 2013 Fall
+    h3 R5-6 [BOF] Over the Node.js. An Introduction to Vert.x
+
+section
+    <iframe src="http://www.slideshare.net/slideshow/embed_code/28096272" width="427" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="https://www.slideshare.net/acroquest/an-introduction-to-vertx" title="An Introduction to Vert.x" target="_blank">An Introduction to Vert.x</a> </strong> from <strong><a href="http://www.slideshare.net/acroquest" target="_blank">Acroquest Technology</a></strong> </div>
+
+section
+    section
+        h2 詳しくは
+    section
+        h2
+            a{:href => "http://vertx.io/docs.html"} 公式ドキュメント
+
+section
+    h2 だいたい分かったので
+
+section
+    h2 カジュアルにデプロイしたい！
+
+section
+    h2
+        a{:href => "https://www.heroku.com"} Heroku
+
+section
+    h2 してみました
+
+section
+    h2
+        a{:href => "https://github.com/grimrose/vertx-groovy-heroku-sample"} grimrose / vertx-groovy-heroku-sample
+
+section
+    h2 Vert.x + WebSocket + MongoDB
+
+section
+    h2 Vert.xの今後
+
+section
+    h2 2.1.RC3
+
+section
+    h2
+        a{:href => "http://modulereg.vertx.io/"} Vert.x Module Registry
+
+section
+    h2 Java 8
+
+section
+    h2 Nashorn
+
+section
+    h2
+        a{:href => "http://nodyn.io"} Nodyn
+    blockquote Nodyn is a node.js compatible framework
+    blockquote running on the JVM powered by the DynJS Javascript
+
+section
+    h2 ご清聴ありがとうございました。
+
+section
+    p
+        \
+        a{:href => "#/0"} 初めに戻る

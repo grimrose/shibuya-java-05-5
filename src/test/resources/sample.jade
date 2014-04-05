@@ -1,0 +1,12 @@
+-@ var name: List[String]
+
+!!! 5
+html(lang="jp")
+    head
+        meta(charset="utf-8")
+        title タイトル
+    body
+        h1 Jade - こんにちわ
+        #container
+            - for (elem <- name)
+                p = elem
